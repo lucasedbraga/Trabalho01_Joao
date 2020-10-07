@@ -10,7 +10,7 @@ r = 0.107
 L = 1.355 * 10**(-3)
 C = 0.008 * 10**(-6)
 f = 60
-l = 100
+l = 123
 w = 2*math.pi*f
 
 # Circuito Pi Nominal
@@ -18,9 +18,10 @@ Z = complex(r,w*L)
 Z = Complexo.Rect(Z.real, Z.imag)
 Y = complex(0,w*C)
 Y = Complexo.Rect(Y.real,Y.imag)
+print(Y.polar)
 Z = Correcao.Hiperbolica(Z,Y,l).Zlinha()
-
-
+Y = Correcao.Hiperbolica(Z,Y,l).Ylinha()
+print(Y.polar)
 
 Yhalf = Y.rect*(1/2)
 Yquart = Y.rect*(1/4)
@@ -30,8 +31,8 @@ Yquart = Complexo.Rect(Yquart.real,Yquart.imag)
 
 
 print(f'Para o circuito Pi Equivalente, temos que:\n'
-      f'   - Z = {Z.polar}\n'
-      f'   - Y/2 = {Yhalf.polar} ',end='\n \n')
+      f'   - Z\' = {Z.polar}\n'
+      f'   - Y\'/2 = {Yhalf.polar} ',end='\n \n')
 ###############################################################
 
 # Constantes Generalizadas

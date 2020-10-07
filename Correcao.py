@@ -22,7 +22,7 @@ class Hiperbolica:
         zlinha = Complexo.Rect(zlinha.real,zlinha.imag)
         return zlinha
 
-def Ylinha(z,y,l):
-    Zc, cte_prop = Ctes(z, y)
-    ylinha = (1/Zc)*((np.cosh(cte_prop*l)-1)/np.sinh(cte_prop*l))
-    return ylinha
+    def Ylinha(self):
+        ylinha = 2*(1/self.Zc.rect)*((np.cosh(self.cte_prop.rect)-1)/np.sinh(self.cte_prop.rect))
+        ylinha = Complexo.Rect(ylinha.real, ylinha.imag)
+        return ylinha
