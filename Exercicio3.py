@@ -2,9 +2,9 @@
 # Lucas Eduardo Silva Braga - 201570023 #
 #########################################
 
-import Complexo, math, cmath
+import Complexo, Correcao, math, cmath
 
-#Exercício 2
+#Exercício 3
 
 r = 0.107
 L = 1.355 * 10**(-3)
@@ -14,18 +14,22 @@ l = 100
 w = 2*math.pi*f
 
 # Circuito Pi Nominal
-Z = complex(r,w*L)*l
+Z = complex(r,w*L)
 Z = Complexo.Rect(Z.real, Z.imag)
-
-Y = complex(0,w*C)*l
-Yhalf = Y*(1/2)
-Yquart = Y*(1/4)
+Y = complex(0,w*C)
 Y = Complexo.Rect(Y.real,Y.imag)
+Z = Correcao.Hiperbolica(Z,Y,l).Zlinha()
+
+
+
+Yhalf = Y.rect*(1/2)
+Yquart = Y.rect*(1/4)
+
 Yhalf = Complexo.Rect(Yhalf.real,Yhalf.imag)
 Yquart = Complexo.Rect(Yquart.real,Yquart.imag)
 
 
-print(f'Para o circuito Pi Nominal, temos que:\n'
+print(f'Para o circuito Pi Equivalente, temos que:\n'
       f'   - Z = {Z.polar}\n'
       f'   - Y/2 = {Yhalf.polar} ',end='\n \n')
 ###############################################################

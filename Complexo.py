@@ -64,6 +64,7 @@ def ConjugadoComplexo(a):
     conjugado = Rect(a.rect.real, -a.rect.imag)
     return conjugado
 
-
-x = cmath.rect(83.5019,6.7318)
-print(x)
+def RaizFasor(a):
+    raiz = [math.sqrt(a.mod), (1/2)*(a.ang)]
+    raiz = Polar(raiz[0], raiz[1])
+    return raiz
